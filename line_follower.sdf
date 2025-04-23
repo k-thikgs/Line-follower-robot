@@ -1,0 +1,1199 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="line_following_world">
+    <!-- Sun - Directional light -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Ground Plane -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Line to follow -->
+    <model name="curved_track">
+      <static>true</static>
+      <!-- 36 segments forming a circle -->
+      <!-- Each segment is a small box placed along a circular arc -->
+      <!-- Radius of the track -->
+      <!-- Feel free to adjust radius or number of segments -->
+
+      <!-- Circle: radius = 3m, segments = 36, segment angle = 10 degrees -->
+      <!-- Each segment has a slight rotation and offset -->
+
+      <!-- We'll repeat one segment 36 times around a circle -->
+      <!-- Black color for the line -->
+      <!-- Box size = (0.5 x 0.1 x 0.01) -->
+
+      <!-- Generated curve segments -->
+      <!-- START CURVE -->
+      <!-- Generated via script or manually. Here's the result: -->
+      <!-- Loop from i = 0 to 35 (36 segments) -->
+      <!-- Each has pose: x = r*cos(theta), y = r*sin(theta), yaw = theta -->
+      <!-- Each angle = i * 10 degrees = i * π/18 -->
+
+      <!-- BEGIN CIRCULAR TRACK SEGMENTS -->
+      <!-- Radius: 3.0, Segment count: 36 -->
+      <!-- Each segment is rotated to follow the curve -->
+      <!-- Simplified XML listing just a few and pattern follows -->
+      <!-- Full list for smooth circle -->
+      <!-- Each link name must be unique -->
+      <!-- We will only show a few here to keep it brief -->
+      <!-- You can generate full with a script or request more -->
+
+      <!-- You can replace this with a loop in a script for a full circle -->
+      <!-- Example first 6 segments shown -->
+
+      
+    <link name="segment_0">
+      <pose>0.000 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_0">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_1">
+      <pose>0.500 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_1">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_2">
+      <pose>1.000 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_2">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_3">
+      <pose>1.500 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_3">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_4">
+      <pose>2.000 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_4">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_5">
+      <pose>2.500 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_5">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_6">
+      <pose>3.000 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_6">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_7">
+      <pose>3.500 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_7">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_8">
+      <pose>4.000 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_8">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_9">
+      <pose>4.500 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_9">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_10">
+      <pose>5.000 0.000 0.01 0 0 0.0000</pose>
+      <visual name="visual_10">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_11">
+      <pose>5.174 0.015 0.01 0 0 0.1745</pose>
+      <visual name="visual_11">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_12">
+      <pose>5.342 0.060 0.01 0 0 0.3491</pose>
+      <visual name="visual_12">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_13">
+      <pose>5.500 0.134 0.01 0 0 0.5236</pose>
+      <visual name="visual_13">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_14">
+      <pose>5.643 0.234 0.01 0 0 0.6981</pose>
+      <visual name="visual_14">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_15">
+      <pose>5.766 0.357 0.01 0 0 0.8727</pose>
+      <visual name="visual_15">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_16">
+      <pose>5.866 0.500 0.01 0 0 1.0472</pose>
+      <visual name="visual_16">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_17">
+      <pose>5.940 0.658 0.01 0 0 1.2217</pose>
+      <visual name="visual_17">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_18">
+      <pose>5.985 0.826 0.01 0 0 1.3963</pose>
+      <visual name="visual_18">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_19">
+      <pose>6.000 1.000 0.01 0 0 1.5708</pose>
+      <visual name="visual_19">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_20">
+      <pose>6.000 1.500 0.01 0 0 1.5708</pose>
+      <visual name="visual_20">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_21">
+      <pose>6.000 2.000 0.01 0 0 1.5708</pose>
+      <visual name="visual_21">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_22">
+      <pose>6.000 2.500 0.01 0 0 1.5708</pose>
+      <visual name="visual_22">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_23">
+      <pose>6.000 3.000 0.01 0 0 1.5708</pose>
+      <visual name="visual_23">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_24">
+      <pose>6.000 3.500 0.01 0 0 1.5708</pose>
+      <visual name="visual_24">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_25">
+      <pose>6.000 4.000 0.01 0 0 1.5708</pose>
+      <visual name="visual_25">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_26">
+      <pose>6.000 4.500 0.01 0 0 1.5708</pose>
+      <visual name="visual_26">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_27">
+      <pose>6.000 5.000 0.01 0 0 1.5708</pose>
+      <visual name="visual_27">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_28">
+      <pose>6.000 5.500 0.01 0 0 1.5708</pose>
+      <visual name="visual_28">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_29">
+      <pose>5.500 5.500 0.01 0 0 3.1416</pose>
+      <visual name="visual_29">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_30">
+      <pose>5.000 5.500 0.01 0 0 3.1416</pose>
+      <visual name="visual_30">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_31">
+      <pose>4.500 5.500 0.01 0 0 3.1416</pose>
+      <visual name="visual_31">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_32">
+      <pose>4.000 5.500 0.01 0 0 3.1416</pose>
+      <visual name="visual_32">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_33">
+      <pose>3.500 5.500 0.01 0 0 3.1416</pose>
+      <visual name="visual_33">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_34">
+      <pose>3.000 5.500 0.01 0 0 3.1416</pose>
+      <visual name="visual_34">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_35">
+      <pose>2.500 5.500 0.01 0 0 3.1416</pose>
+      <visual name="visual_35">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_36">
+      <pose>2.000 5.500 0.01 0 0 3.1416</pose>
+      <visual name="visual_36">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_37">
+      <pose>1.500 5.500 0.01 0 0 3.1416</pose>
+      <visual name="visual_37">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_38">
+      <pose>1.000 5.500 0.01 0 0 3.1416</pose>
+      <visual name="visual_38">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_39">
+      <pose>0.000 5.000 0.01 0 0 -1.5708</pose>
+      <visual name="visual_39">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_40">
+      <pose>0.000 4.500 0.01 0 0 -1.5708</pose>
+      <visual name="visual_40">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_41">
+      <pose>0.000 4.000 0.01 0 0 -1.5708</pose>
+      <visual name="visual_41">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_42">
+      <pose>0.000 3.500 0.01 0 0 -1.5708</pose>
+      <visual name="visual_42">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_43">
+      <pose>0.000 3.000 0.01 0 0 -1.5708</pose>
+      <visual name="visual_43">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_44">
+      <pose>0.000 2.500 0.01 0 0 -1.5708</pose>
+      <visual name="visual_44">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_45">
+      <pose>0.000 2.000 0.01 0 0 -1.5708</pose>
+      <visual name="visual_45">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_46">
+      <pose>0.000 1.500 0.01 0 0 -1.5708</pose>
+      <visual name="visual_46">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    
+
+    <link name="segment_47">
+      <pose>0.000 1.000 0.01 0 0 -1.5708</pose>
+      <visual name="visual_47">
+        <geometry>
+          <box>
+            <size>0.5 0.1 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+
+
+
+
+    </model>
+
+    <!-- Line Following Robot Model -->
+    <model name="line_follower_robot">
+      <pose>0 0 0.1 0 0 0</pose>
+      
+     <link name="chassis">
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>0.1</ixx>
+            <iyy>0.1</iyy>
+            <izz>0.1</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.3 0.2 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.3 0.2 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2 0.2 0.8 1</ambient>
+            <diffuse>0.2 0.2 0.8 1</diffuse>
+            <specular>0.2 0.2 0.8 1</specular>
+          </material>
+        </visual>
+        
+        <!-- Stereo Camera -->
+        <sensor name="stereo_camera" type="camera">
+          <pose>0.15 0 0.1 0 0.3 0</pose>
+          <always_on>true</always_on>
+          <update_rate>30</update_rate>
+          <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.007</stddev>
+            </noise>
+          </camera>
+          <plugin
+            filename="libignition-gazebo-camera-system.so"
+            name="ignition::gazebo::systems::Camera">
+            <topic>/stereo_camera</topic>
+          </plugin>
+        </sensor>
+
+        <!-- LiDAR Frame -->
+        <frame name="lidar_frame" attached_to='chassis'>
+          <pose>0.15 0 0.15 0 0 0</pose>
+        </frame>
+
+        <!-- LiDAR Sensor -->
+        <sensor name='gpu_lidar' type='gpu_lidar'>
+          <pose relative_to='lidar_frame'>0 0 0 0 0 0</pose>
+          <topic>lidar</topic>
+          <update_rate>10</update_rate>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>640</samples>
+                <resolution>1</resolution>
+                <min_angle>-1.396263</min_angle>
+                <max_angle>1.396263</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>1</samples>
+                <resolution>0.01</resolution>
+                <min_angle>0</min_angle>
+                <max_angle>0</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.08</min>
+              <max>10.0</max>
+              <resolution>0.01</resolution>
+            </range>
+          </ray>
+          <always_on>1</always_on>
+          <visualize>true</visualize>
+        </sensor>
+      </link>
+      
+      <!-- Front Left Wheel -->
+      <link name="front_left_wheel">
+        <pose>0.1 0.13 -0.05 1.5707 0 0</pose>
+        <inertial>
+          <mass>0.2</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <iyy>0.0001</iyy>
+            <izz>0.0001</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Front Right Wheel -->
+      <link name="front_right_wheel">
+        <pose>0.1 -0.13 -0.05 1.5707 0 0</pose>
+        <inertial>
+          <mass>0.2</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <iyy>0.0001</iyy>
+            <izz>0.0001</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Rear Left Wheel -->
+      <link name="rear_left_wheel">
+        <pose>-0.1 0.13 -0.05 1.5707 0 0</pose>
+        <inertial>
+          <mass>0.2</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <iyy>0.0001</iyy>
+            <izz>0.0001</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Rear Right Wheel -->
+      <link name="rear_right_wheel">
+        <pose>-0.1 -0.13 -0.05 1.5707 0 0</pose>
+        <inertial>
+          <mass>0.2</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <iyy>0.0001</iyy>
+            <izz>0.0001</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.03</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+      
+      <!-- Joints -->
+      <!-- Front Left Wheel Joint -->
+      <joint name="front_left_wheel_joint" type="revolute">
+        <parent>chassis</parent>
+        <child>front_left_wheel</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+        </axis>
+      </joint>
+      
+      <!-- Front Right Wheel Joint -->
+      <joint name="front_right_wheel_joint" type="revolute">
+        <parent>chassis</parent>
+        <child>front_right_wheel</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+        </axis>
+      </joint>
+      
+      <!-- Rear Left Wheel Joint -->
+      <joint name="rear_left_wheel_joint" type="revolute">
+        <parent>chassis</parent>
+        <child>rear_left_wheel</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+        </axis>
+      </joint>
+      
+      <!-- Rear Right Wheel Joint -->
+      <joint name="rear_right_wheel_joint" type="revolute">
+        <parent>chassis</parent>
+        <child>rear_right_wheel</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+        </axis>
+      </joint>
+      
+      <!-- Plugins for driving the robot -->
+      <plugin
+        filename="libignition-gazebo-diff-drive-system.so"
+        name="ignition::gazebo::systems::DiffDrive">
+        <left_joint>front_left_wheel_joint</left_joint>
+        <left_joint>rear_left_wheel_joint</left_joint>
+        <right_joint>front_right_wheel_joint</right_joint>
+        <right_joint>rear_right_wheel_joint</right_joint>
+        <wheel_separation>0.26</wheel_separation>
+        <wheel_radius>0.05</wheel_radius>
+        <odom_publish_frequency>10</odom_publish_frequency>
+        <topic>cmd_vel</topic>
+      </plugin>
+    </model>
+
+    <!-- Physics -->
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    
+    <!-- Essential Plugins -->
+    <plugin
+      filename="libignition-gazebo-physics-system.so"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin
+      filename="libignition-gazebo-user-commands-system.so"
+      name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="libignition-gazebo-scene-broadcaster-system.so"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="libignition-gazebo-sensors-system.so"
+      name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+  </world>
+</sdf>
